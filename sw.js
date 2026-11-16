@@ -1,4 +1,4 @@
-const CACHE = 'mera-tracker-v1';
+const CACHE = 'mera-tracker-v2';
 const ASSETS = ['./', './tracker.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
