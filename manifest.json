@@ -1,7 +1,7 @@
 {
-  "name": "Mera Finance Tracker",
+  "name": "My Finance Tracker",
   "short_name": "Tracker",
-  "description": "Mera personal finance tracker - kharcha, income aur budget",
+  "description": "My personal finance tracker - expenses, income and budget",
   "start_url": "./tracker.html",
   "scope": "./",
   "display": "standalone",

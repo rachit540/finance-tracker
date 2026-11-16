@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -556,26 +556,26 @@
 </head>
 <body>
 
-<!-- ============ SCREEN 1: GHAR ============ -->
+<!-- ============ SCREEN 1: HOME ============ -->
 <div class="screen active" id="screen-home">
   <div class="page-header purple">
     <div class="header-top">
       <div>
-        <div class="greeting" id="greeting">Namaste! 👋</div>
-        <div class="app-name">💰 Mera Tracker</div>
+        <div class="greeting" id="greeting">Hello! 👋</div>
+        <div class="app-name">💰 My Tracker</div>
       </div>
       <button class="theme-btn" id="themeBtn">🌙</button>
     </div>
     <div class="balance-card">
-      <div class="balance-label">Mere paas bacha hai</div>
+      <div class="balance-label">My Balance</div>
       <div class="balance-amount" id="balance">₹0</div>
       <div class="mini-stats">
         <div class="mini-stat">
-          <div class="label"><span class="dot dot-green"></span>Aaya</div>
+          <div class="label"><span class="dot dot-green"></span>Income</div>
           <div class="value" id="totalIncome">₹0</div>
         </div>
         <div class="mini-stat">
-          <div class="label"><span class="dot dot-red"></span>Gaya</div>
+          <div class="label"><span class="dot dot-red"></span>Expense</div>
           <div class="value" id="totalExpense">₹0</div>
         </div>
       </div>
@@ -584,14 +584,14 @@
 
   <div class="container">
     <div class="section-title">
-      <h3>⏰ Abhi-Abhi</h3>
-      <button class="link-btn" onclick="goTo('history')">Sab dekho →</button>
+      <h3>⏰ Recent</h3>
+      <button class="link-btn" onclick="goTo('history')">View All →</button>
     </div>
     <div class="txn-list" id="recentList"></div>
 
     <!-- Backup -->
     <div class="backup-card">
-      <p>💾 Phone badalne se pehle backup le lo!<br>File ko Google Drive / WhatsApp khud ko bhej do.</p>
+      <p>💾 Backup before switching phones!<br>Send the file to yourself on Google Drive / WhatsApp.</p>
       <div class="backup-btns">
         <button class="backup-btn out" id="backupBtn">📤 Backup</button>
         <button class="backup-btn in" id="restoreBtn">📥 Restore</button>
@@ -601,34 +601,34 @@
   </div>
 </div>
 
-<!-- ============ SCREEN 2: JODO ============ -->
+<!-- ============ SCREEN 2: ADD ============ -->
 <div class="screen" id="screen-add">
   <div class="page-header purple" style="padding-bottom: 46px;">
-    <h1>➕ Kya hua?</h1>
+    <h1>➕ What happened?</h1>
   </div>
 
   <div class="container">
     <div class="type-toggle">
-      <button type="button" id="btnExpense" class="active-expense">− Kharcha</button>
-      <button type="button" id="btnIncome">+ Aaya</button>
+      <button type="button" id="btnExpense" class="active-expense">− Expense</button>
+      <button type="button" id="btnIncome">+ Income</button>
     </div>
 
     <div class="add-card">
-      <div class="q-label">Kitne paise?</div>
+      <div class="q-label">How much?</div>
       <div class="amount-input-wrap">
         <span class="currency">₹</span>
         <input type="number" id="amount" placeholder="0" min="0" step="0.01" inputmode="decimal">
       </div>
 
-      <div class="q-label" id="chipLabel">Kahan gaya?</div>
+      <div class="q-label" id="chipLabel">Where did it go?</div>
       <div class="chips" id="chips"></div>
 
       <div class="note-date-row">
-        <input type="text" id="note" placeholder="Kuch likhna hai? (optional)">
+        <input type="text" id="note" placeholder="Add a note (optional)">
         <input type="date" id="date">
       </div>
 
-      <button class="big-btn" id="saveBtn">✅ Save Karo</button>
+      <button class="big-btn" id="saveBtn">✅ Save Expense</button>
     </div>
   </div>
 </div>
@@ -636,7 +636,7 @@
 <!-- ============ SCREEN 3: BUDGET ============ -->
 <div class="screen" id="screen-budget">
   <div class="page-header green-h">
-    <h1>🎯 Mera Budget</h1>
+    <h1>🎯 My Budget</h1>
   </div>
 
   <div class="container">
@@ -644,10 +644,10 @@
   </div>
 </div>
 
-<!-- ============ SCREEN 4: SAB ============ -->
+<!-- ============ SCREEN 4: HISTORY ============ -->
 <div class="screen" id="screen-history">
   <div class="page-header orange">
-    <h1>📋 Sab Kharche</h1>
+    <h1>📋 All Transactions</h1>
   </div>
 
   <div class="container">
@@ -659,22 +659,22 @@
 <!-- ============ BOTTOM NAV ============ -->
 <nav class="bottom-nav">
   <button class="nav-btn active" data-screen="home">
-    <span class="icon">🏠</span><span class="lbl">Ghar</span>
+    <span class="icon">🏠</span><span class="lbl">Home</span>
   </button>
   <button class="nav-fab" data-screen="add">➕</button>
   <button class="nav-btn" data-screen="budget">
     <span class="icon">🎯</span><span class="lbl">Budget</span>
   </button>
   <button class="nav-btn" data-screen="history">
-    <span class="icon">📋</span><span class="lbl">Sab</span>
+    <span class="icon">📋</span><span class="lbl">All</span>
   </button>
 </nav>
 
 <div class="toast" id="toast"></div>
 
 <script>
-  const EXPENSE_CATS = ['🍛 Khana', '🚌 Travel', '🛒 Shopping', '🏠 Rent', '📱 Recharge', '💊 Health', '🎬 Masti', '📦 Other'];
-  const INCOME_CATS = ['💼 Salary', '🎁 Gift', '📈 Extra', '📥 Wapas Mila', '📦 Other'];
+  const EXPENSE_CATS = ['🍛 Food', '🚌 Travel', '🛒 Shopping', '🏠 Rent', '📱 Recharge', '💊 Health', '🎬 Fun', '📦 Other'];
+  const INCOME_CATS = ['💼 Salary', '🎁 Gift', '📈 Extra', '📥 Refund', '📦 Other'];
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const RING_C = 2 * Math.PI * 70;
 
@@ -704,8 +704,8 @@
   }
 
   function dayLabel(d) {
-    if (d === todayStr()) return 'Aaj';
-    if (d === todayStr(1)) return 'Kal';
+    if (d === todayStr()) return 'Today';
+    if (d === todayStr(1)) return 'Yesterday';
     return fmtDate(d);
   }
 
@@ -746,11 +746,11 @@
   function setGreeting() {
     const h = new Date().getHours();
     let g;
-    if (h >= 5 && h < 12) g = 'Subah ho gayi! ☀️';
-    else if (h >= 12 && h < 17) g = 'Dopahar ho gayi! 🌤️';
-    else if (h >= 17 && h < 21) g = 'Shaam ho gayi! 🌆';
-    else g = 'Raat ho gayi! 🌙';
-    document.getElementById('greeting').textContent = g + ' Namaste!';
+    if (h >= 5 && h < 12) g = 'Good morning! ☀️';
+    else if (h >= 12 && h < 17) g = 'Good afternoon! 🌤️';
+    else if (h >= 17 && h < 21) g = 'Good evening! 🌆';
+    else g = 'Good night! 🌙';
+    document.getElementById('greeting').textContent = g + ' Hello!';
   }
 
   // ===== Dark mode =====
@@ -825,7 +825,7 @@
       recentEl.innerHTML = `
         <div class="empty-state">
           <div class="emoji">🪙</div>
-          <p>Kuch nahi hai abhi!<br>Niche wala ➕ daba ke<br>pehla kharcha likho 😊</p>
+          <p>Nothing here yet!<br>Tap the ➕ below to add<br>your first expense 😊</p>
         </div>`;
     } else {
       recentEl.innerHTML = transactions.slice(-3).reverse()
@@ -844,18 +844,18 @@
           <div style="font-size:52px; margin-bottom: 10px;">🎯</div>
         </div>
         <p class="budget-sub" style="margin-bottom:18px; font-size:15px;">
-          Mahine mein kitna kharch karoge?<br>Limit set karo, warning hum denge!
+          How much will you spend this month?<br>Set a limit and we'll keep you on track!
         </p>
         <div class="budget-setup">
-          <input type="number" id="budgetInput" placeholder="₹ Jaise: 5000" inputmode="decimal">
-          <button class="big-btn green" id="setBudgetBtn">🎯 Budget Set Karo</button>
+          <input type="number" id="budgetInput" placeholder="₹ e.g. 5000" inputmode="decimal">
+          <button class="big-btn green" id="setBudgetBtn">🎯 Set Budget</button>
         </div>`;
       document.getElementById('setBudgetBtn').onclick = function() {
         const val = parseFloat(document.getElementById('budgetInput').value);
-        if (!val || val <= 0) { showToast('⚠️ Sahi amount daalo!'); return; }
+        if (!val || val <= 0) { showToast('⚠️ Enter a valid amount!'); return; }
         budget = val;
         localStorage.setItem('myFinanceBudget', budget);
-        showToast('🎯 Budget set ho gaya!');
+        showToast('🎯 Budget set!');
         confetti();
         renderAll();
       };
@@ -870,9 +870,9 @@
 
     let msgHTML;
     if (remaining >= 0) {
-      msgHTML = `<div class="budget-msg ${barClass}">💰 ₹${remaining.toLocaleString('en-IN')} aur kharch kar sakte ho!</div>`;
+      msgHTML = `<div class="budget-msg ${barClass}">💰 You can still spend ₹${remaining.toLocaleString('en-IN')}!</div>`;
     } else {
-      msgHTML = `<div class="budget-msg over">🔴 ₹${Math.abs(remaining).toLocaleString('en-IN')} zyada kharch ho gaya!</div>`;
+      msgHTML = `<div class="budget-msg over">🔴 You're ₹${Math.abs(remaining).toLocaleString('en-IN')} over budget!</div>`;
     }
 
     body.innerHTML = `
@@ -887,18 +887,18 @@
         <div class="ring-center">
           <div class="mood">${mood}</div>
           <div class="pct" style="color:${ringColor}">${Math.round(pct)}%</div>
-          <div class="pct-lbl">kharch ho gaya</div>
+          <div class="pct-lbl">spent</div>
         </div>
       </div>
       <div class="budget-amount-line">
         <div class="budget-big-amt">₹${spent.toLocaleString('en-IN')}</div>
-        <div class="budget-sub">₹${budget.toLocaleString('en-IN')} ki limit se is mahine</div>
+        <div class="budget-sub">spent this month of ₹${budget.toLocaleString('en-IN')} limit</div>
       </div>
       ${msgHTML}
-      <button class="link-btn" style="margin-top:16px; border:none; background:none; color:var(--primary); font-weight:700; cursor:pointer;" id="changeBudgetBtn">✏️ Budget badalna hai?</button>`;
+      <button class="link-btn" style="margin-top:16px; border:none; background:none; color:var(--primary); font-weight:700; cursor:pointer;" id="changeBudgetBtn">✏️ Change budget?</button>`;
 
     document.getElementById('changeBudgetBtn').onclick = function() {
-      if (confirm('Budget badalna hai?')) {
+      if (confirm('Change budget?')) {
         budget = 0;
         localStorage.removeItem('myFinanceBudget');
         renderBudget();
@@ -913,9 +913,9 @@
 
   function renderHistory() {
     const filters = [
-      { id: 'all', label: 'Sab' },
-      { id: 'expense', label: '− Kharcha' },
-      { id: 'income', label: '+ Aaya' }
+      { id: 'all', label: 'All' },
+      { id: 'expense', label: '− Expense' },
+      { id: 'income', label: '+ Income' }
     ];
     const filterEl = document.getElementById('historyFilter');
     filterEl.innerHTML = filters.map(f =>
@@ -937,7 +937,7 @@
       listEl.innerHTML = `
         <div class="empty-state">
           <div class="emoji">🔍</div>
-          <p>Yahan kuch nahi mila!</p>
+          <p>Nothing found here!</p>
         </div>`;
       return;
     }
@@ -974,10 +974,10 @@
 
   // ===== Delete =====
   window.deleteTxn = function(i) {
-    if (confirm('Hataana hai?')) {
+    if (confirm('Delete this?')) {
       transactions.splice(i, 1);
       save();
-      showToast('🗑️ Ho gaya delete');
+      showToast('🗑️ Deleted');
     }
   };
 
@@ -990,8 +990,8 @@
     btnExpense.className = type === 'expense' ? 'active-expense' : '';
     btnIncome.className = type === 'income' ? 'active-income' : '';
     selectedCategory = null;
-    document.getElementById('chipLabel').textContent = type === 'expense' ? 'Kahan gaya?' : 'Kahan se aaya?';
-    document.getElementById('saveBtn').textContent = type === 'expense' ? '✅ Kharcha Save Karo' : '✅ Aaya Save Karo';
+    document.getElementById('chipLabel').textContent = type === 'expense' ? 'Where did it go?' : 'Where did it come from?';
+    document.getElementById('saveBtn').textContent = type === 'expense' ? '✅ Save Expense' : '✅ Save Income';
     renderChips();
   }
   btnExpense.onclick = () => setType('expense');
@@ -1018,7 +1018,7 @@
     const amount = parseFloat(amountInput.value);
 
     if (!amount || amount <= 0) {
-      showToast('⚠️ Pehle amount daalo!');
+      showToast('⚠️ Enter amount first!');
       amountInput.focus();
       return;
     }
@@ -1038,14 +1038,14 @@
     selectedCategory = null;
     renderChips();
 
-    let msg = '✅ Save ho gaya!';
+    let msg = '✅ Saved!';
     if (tx.type === 'expense' && budget) {
       const spent = monthExpenses();
       const prev = spent - tx.amount;
       if (prev < budget && spent >= budget) {
-        msg = '🚨 Budget cross ho gaya! ₹' + (spent - budget).toLocaleString('en-IN') + ' extra!';
+        msg = '🚨 Budget crossed! ₹' + (spent - budget).toLocaleString('en-IN') + ' over!';
       } else if (prev < budget * 0.75 && spent >= budget * 0.75) {
-        msg = '⚠️ Budget ke 75%+ ho gaye!';
+        msg = '⚠️ Over 75% of budget used!';
       }
     }
     showToast(msg);
@@ -1056,11 +1056,11 @@
   // ===== Backup & Restore =====
   document.getElementById('backupBtn').onclick = function() {
     if (transactions.length === 0) {
-      showToast('⚠️ Pehle kuch transactions add karo!');
+      showToast('⚠️ Add some transactions first!');
       return;
     }
     const data = {
-      app: 'mera-finance-tracker',
+      app: 'my-finance-tracker',
       version: 1,
       exported: new Date().toISOString(),
       budget: budget,
@@ -1072,7 +1072,7 @@
     a.download = 'finance-backup-' + todayStr() + '.json';
     a.click();
     URL.revokeObjectURL(a.href);
-    showToast('📤 Backup download ho gaya!');
+    showToast('📤 Backup downloaded!');
   };
 
   document.getElementById('restoreBtn').onclick = function() {
@@ -1087,10 +1087,10 @@
       try {
         const data = JSON.parse(ev.target.result);
         if (!data.transactions || !Array.isArray(data.transactions)) {
-          showToast('⚠️ Galat backup file hai!');
+          showToast('⚠️ Invalid backup file!');
           return;
         }
-        if (confirm('Is backup mein ' + data.transactions.length + ' transactions hain.\nAbhi ka data replace ho jayega. Theek hai?')) {
+        if (confirm('This backup has ' + data.transactions.length + ' transactions.\nCurrent data will be replaced. Continue?')) {
           transactions = data.transactions;
           if (data.budget) {
             budget = parseFloat(data.budget);
@@ -1098,10 +1098,10 @@
           }
           save();
           confetti();
-          showToast('📥 Sara data wapas aa gaya!');
+          showToast('📥 All data restored!');
         }
       } catch (err) {
-        showToast('⚠️ File read nahi hui, galat file!');
+        showToast('⚠️ Could not read the file!');
       }
     };
     reader.readAsText(file);
